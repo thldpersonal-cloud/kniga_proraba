@@ -5,185 +5,167 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Книга прораба">
+<meta name="application-name" content="Книга прораба">
+<meta name="theme-color" content="#1a1a1a">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgZmlsbD0iIzFhMWExYSIvPjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iOCIgZmlsbD0iI0U4QTgwMCIvPjx0ZXh0IHg9Ijk2IiB5PSIxMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjcyIiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjRThBODAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7QotClPC90ZXh0Pjwvc3ZnPg==">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgZmlsbD0iIzFhMWExYSIvPjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iOCIgZmlsbD0iI0U4QTgwMCIvPjx0ZXh0IHg9Ijk2IiB5PSIxMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjcyIiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjRThBODAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7QotClPC90ZXh0Pjwvc3ZnPg==">
 <title>Книга прораба — Техно Холдинг</title>
 <style>
-/* RESET */
 *{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:rgba(0,0,0,0);}
 html{-webkit-text-size-adjust:100%;height:100%;}
-body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;background:#F5F4F0;color:#1a1a1a;height:100%;overflow:hidden;}
-
-/* LAYOUT */
-#app{position:fixed;top:0;left:0;right:0;bottom:0;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
-
-/* TOP BAR */
-#topbar{background:#1a1a1a;padding:0.625rem 1rem;padding-top:calc(0.625rem + env(safe-area-inset-top));display:-webkit-flex;display:flex;align-items:center;gap:10px;-webkit-flex-shrink:0;flex-shrink:0;z-index:10;}
-.tb-logo{display:-webkit-flex;display:flex;align-items:center;gap:8px;-webkit-flex:1;flex:1;}
-.tb-icon{width:30px;height:30px;background:#E8A800;border-radius:6px;display:-webkit-flex;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#412402;-webkit-flex-shrink:0;flex-shrink:0;}
-.tb-title{font-size:12px;font-weight:600;color:#fff;}
-.tb-sub{font-size:8px;color:#666;text-transform:uppercase;letter-spacing:0.07em;}
-.tb-menu{width:36px;height:36px;background:rgba(255,255,255,0.08);border:none;border-radius:8px;cursor:pointer;display:-webkit-flex;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;}
-.tb-menu span{display:block;width:18px;height:1.5px;background:#fff;border-radius:2px;}
-
-/* SCROLL AREA */
-#scroll-wrap{-webkit-flex:1;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
-#content{padding:0.875rem;padding-bottom:calc(80px + env(safe-area-inset-bottom));}
-
-/* BOTTOM NAV */
-#bottomnav{background:#1a1a1a;border-top:1px solid #2a2a2a;padding-bottom:env(safe-area-inset-bottom);-webkit-flex-shrink:0;flex-shrink:0;z-index:10;}
-.bn-inner{display:-webkit-flex;display:flex;}
-.bn-btn{-webkit-flex:1;flex:1;display:-webkit-flex;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 2px 5px;background:none;border:none;cursor:pointer;min-height:50px;gap:2px;}
-.bn-dot{width:8px;height:8px;border-radius:2px;margin-bottom:1px;}
-.bn-lbl{font-size:8px;color:#555;text-align:center;line-height:1.2;max-width:52px;font-family:inherit;}
-.bn-btn.act .bn-lbl{color:#E8A800;}
-.bn-btn.act .bn-icon{color:#E8A800;}
-.bn-icon{font-size:16px;color:#555;}
-
-/* DRAWER */
-#overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:50;opacity:0;visibility:hidden;-webkit-transition:opacity 0.25s,visibility 0.25s;transition:opacity 0.25s,visibility 0.25s;}
-#overlay.on{opacity:1;visibility:visible;}
-#drawer{position:fixed;top:0;left:0;bottom:0;width:min(300px,85vw);background:#1a1a1a;z-index:51;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:-webkit-transform 0.3s ease;transition:transform 0.3s ease;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;overflow:hidden;}
-#drawer.on{-webkit-transform:translateX(0);transform:translateX(0);}
-.dr-head{padding:1rem;padding-top:calc(1rem + env(safe-area-inset-top));border-bottom:1px solid #2a2a2a;display:-webkit-flex;display:flex;align-items:center;justify-content:space-between;-webkit-flex-shrink:0;flex-shrink:0;}
-.dr-close{width:32px;height:32px;background:#2a2a2a;border:none;border-radius:8px;color:#aaa;font-size:16px;cursor:pointer;display:-webkit-flex;display:flex;align-items:center;justify-content:center;}
-.dr-scroll{-webkit-flex:1;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-.dr-foot{padding:0.875rem 1rem;border-top:1px solid #222;-webkit-flex-shrink:0;flex-shrink:0;font-size:9px;color:#383838;line-height:1.7;}
-
-/* NAV ITEMS */
+body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;background:#F5F4F0;color:#1a1a1a;height:100%;overflow:hidden;}
+.app{display:flex;height:100vh;overflow:hidden;}
+.sidebar{width:255px;background:#1a1a1a;flex-shrink:0;display:flex;flex-direction:column;overflow-y:auto;}
+.sb-logo{padding:1.125rem 1rem 0.875rem;border-bottom:1px solid #2a2a2a;flex-shrink:0;}
+.logo-box{display:flex;align-items:center;gap:9px;}
+.logo-icon{width:32px;height:32px;background:#E8A800;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#412402;flex-shrink:0;}
+.logo-name{font-size:11px;font-weight:700;color:#fff;letter-spacing:0.04em;line-height:1.2;}
+.logo-sub{font-size:8px;color:#555;letter-spacing:0.08em;text-transform:uppercase;margin-top:1px;}
+.sb-book-lbl{padding:0.625rem 1rem 0.375rem;font-size:9px;color:#444;text-transform:uppercase;letter-spacing:0.1em;flex-shrink:0;}
 .sec-group{margin-bottom:1px;}
-.sec-head{display:-webkit-flex;display:flex;align-items:center;gap:8px;padding:8px 1rem;cursor:pointer;min-height:40px;}
-.sec-head:active{background:#252525;}
-.sec-dot{width:9px;height:9px;border-radius:2px;-webkit-flex-shrink:0;flex-shrink:0;}
-.sec-num{font-size:10px;color:#555;width:14px;-webkit-flex-shrink:0;flex-shrink:0;}
-.sec-lbl{font-size:11px;color:#999;-webkit-flex:1;flex:1;line-height:1.3;}
-.sec-arr{font-size:9px;color:#555;-webkit-transition:-webkit-transform 0.2s;transition:transform 0.2s;-webkit-flex-shrink:0;flex-shrink:0;}
-.sec-group.open .sec-arr{-webkit-transform:rotate(90deg);transform:rotate(90deg);}
+.sec-head{display:flex;align-items:center;gap:8px;padding:7px 1rem;cursor:pointer;min-height:38px;}
+.sec-head:hover,.sec-head:active{background:#252525;}
+.sec-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
+.sec-num{font-size:10px;color:#555;width:13px;flex-shrink:0;}
+.sec-lbl{font-size:11px;color:#999;flex:1;line-height:1.3;}
+.sec-arr{font-size:9px;color:#555;transition:transform 0.2s;flex-shrink:0;}
+.sec-group.open .sec-arr{transform:rotate(90deg);}
 .reg-list{display:none;padding:1px 0 3px;}
 .sec-group.open .reg-list{display:block;}
-.ri{display:-webkit-flex;display:flex;align-items:flex-start;gap:7px;padding:6px 1rem 6px 1.875rem;cursor:pointer;min-height:34px;}
-.ri:active{background:#252525;}
+.ri{display:flex;align-items:flex-start;gap:7px;padding:5px 1rem 5px 1.875rem;cursor:pointer;min-height:32px;}
+.ri:hover,.ri:active{background:#252525;}
 .ri.act{background:#2a2000;}
-.ri-code{font-size:9px;color:#3a3a3a;-webkit-flex-shrink:0;flex-shrink:0;min-width:34px;padding-top:1px;}
+.ri-code{font-size:9px;color:#3a3a3a;flex-shrink:0;min-width:34px;padding-top:1px;}
 .ri-title{font-size:10px;color:#666;line-height:1.4;}
 .ri.act .ri-code,.ri.act .ri-title{color:#E8A800;}
-
-/* CARDS */
-.card{background:#fff;border-radius:12px;border:0.5px solid rgba(0,0,0,0.07);overflow:hidden;margin-bottom:0.75rem;}
-.card-head{padding:0.875rem 1rem 0.75rem;display:-webkit-flex;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;border-bottom-width:3px;border-bottom-style:solid;}
-.card-badge{font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap;margin-top:2px;-webkit-flex-shrink:0;flex-shrink:0;}
+.sb-foot{padding:0.875rem 1rem;border-top:1px solid #222;margin-top:auto;flex-shrink:0;font-size:9px;color:#333;line-height:1.7;}
+.main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.main-inner{padding:1.5rem;max-width:660px;}
+.topbar{display:none;align-items:center;gap:10px;padding:0.625rem 1rem;padding-top:calc(0.625rem + env(safe-area-inset-top));background:#1a1a1a;flex-shrink:0;position:sticky;top:0;z-index:20;}
+.tb-menu{width:36px;height:36px;background:rgba(255,255,255,0.08);border:none;border-radius:8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;flex-shrink:0;}
+.tb-menu span{display:block;width:18px;height:1.5px;background:#fff;border-radius:2px;}
+#overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:50;opacity:0;visibility:hidden;transition:opacity 0.25s,visibility 0.25s;}
+#overlay.on{opacity:1;visibility:visible;}
+#drawer{position:fixed;top:0;left:0;bottom:0;width:min(285px,88vw);background:#1a1a1a;z-index:51;transform:translateX(-100%);transition:transform 0.28s ease;display:flex;flex-direction:column;overflow:hidden;}
+#drawer.on{transform:translateX(0);}
+.dr-head{padding:1rem;padding-top:calc(1rem + env(safe-area-inset-top));border-bottom:1px solid #2a2a2a;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.dr-close{width:32px;height:32px;background:#2a2a2a;border:none;border-radius:8px;color:#aaa;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.dr-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.dr-foot{padding:0.75rem 1rem;border-top:1px solid #222;flex-shrink:0;font-size:9px;color:#333;line-height:1.7;}
+.bottomnav{display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;border-top:1px solid #2a2a2a;z-index:19;padding-bottom:env(safe-area-inset-bottom);}
+.bn-inner{display:flex;}
+.bn-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 2px 5px;background:none;border:none;cursor:pointer;min-height:50px;gap:2px;}
+.bn-dot{width:8px;height:8px;border-radius:2px;margin-bottom:1px;}
+.bn-icon{font-size:16px;color:#555;}
+.bn-lbl{font-size:8px;color:#555;text-align:center;line-height:1.2;max-width:54px;font-family:inherit;}
+.bn-btn.act .bn-lbl,.bn-btn.act .bn-icon{color:#E8A800;}
+.pwa-banner{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:12px;padding:0.875rem 1rem;margin-bottom:0.875rem;display:flex;align-items:center;gap:12px;}
+.pwa-text{flex:1;}
+.pwa-title{font-size:12px;font-weight:600;color:#fff;margin-bottom:2px;}
+.pwa-sub{font-size:10px;color:#666;line-height:1.4;}
+.pwa-close{width:24px;height:24px;background:none;border:none;color:#444;font-size:18px;cursor:pointer;flex-shrink:0;}
+.card{background:#fff;border-radius:12px;border:0.5px solid rgba(0,0,0,0.07);overflow:hidden;margin-bottom:0.875rem;}
+.card-head{padding:0.875rem 1rem 0.75rem;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;border-bottom-width:3px;border-bottom-style:solid;}
+.card-badge{font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
 .card-title{font-size:14px;font-weight:600;color:#1a1a1a;line-height:1.3;}
 .card-meta{font-size:10px;color:#aaa;margin-top:2px;}
 .card-body{padding:0.875rem 1rem;}
 .blk{margin-bottom:0.875rem;}
 .blk-lbl{font-size:9px;font-weight:700;color:#bbb;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:5px;}
 .goal{background:#EFF6FF;border-left:3px solid #3B82F6;padding:8px 10px;font-size:12px;color:#1E40AF;line-height:1.55;}
-.chips{display:-webkit-flex;display:flex;gap:5px;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
-.chip{background:#F5F4F0;border:0.5px solid #e0e0e0;border-radius:20px;padding:4px 9px;font-size:11px;color:#444;display:-webkit-flex;display:flex;align-items:center;gap:4px;}
-.dls{display:-webkit-flex;display:flex;gap:6px;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
-.dl{background:#F5F4F0;border-radius:8px;padding:7px 9px;-webkit-flex:1;flex:1;min-width:90px;}
+.chips{display:flex;gap:5px;flex-wrap:wrap;}
+.chip{background:#F5F4F0;border:0.5px solid #e0e0e0;border-radius:20px;padding:4px 9px;font-size:11px;color:#444;display:flex;align-items:center;gap:4px;}
+.dls{display:flex;gap:6px;flex-wrap:wrap;}
+.dl{background:#F5F4F0;border-radius:8px;padding:7px 9px;flex:1;min-width:90px;}
 .dl-v{font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.2;}
 .dl-l{font-size:10px;color:#999;margin-top:2px;line-height:1.3;}
-.step{display:-webkit-flex;display:flex;gap:9px;align-items:flex-start;padding:6px 0;border-bottom:0.5px solid #f2f2f2;}
+.step{display:flex;gap:9px;align-items:flex-start;padding:6px 0;border-bottom:0.5px solid #f2f2f2;}
 .step:last-child{border-bottom:none;}
-.step-n{min-width:20px;height:20px;border-radius:50%;font-size:10px;font-weight:700;display:-webkit-flex;display:flex;align-items:center;justify-content:center;-webkit-flex-shrink:0;flex-shrink:0;margin-top:1px;}
+.step-n{min-width:20px;height:20px;border-radius:50%;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 .step-t{font-size:12px;color:#1a1a1a;line-height:1.45;}
 .step-h{font-size:11px;color:#aaa;margin-top:2px;line-height:1.4;}
-.doc{display:-webkit-flex;display:flex;align-items:center;gap:7px;padding:5px 9px;border:0.5px solid #eee;border-radius:8px;margin-top:5px;}
-.doc-n{font-size:11px;color:#444;-webkit-flex:1;flex:1;line-height:1.3;}
-.doc-t{font-size:9px;padding:2px 7px;border-radius:20px;-webkit-flex-shrink:0;flex-shrink:0;white-space:nowrap;}
-.warn{display:-webkit-flex;display:flex;gap:7px;align-items:flex-start;padding:7px 10px;background:#FFFBEB;border-left:3px solid #F59E0B;}
+.doc-row{display:flex;align-items:center;gap:7px;padding:5px 9px;border:0.5px solid #eee;border-radius:8px;margin-top:5px;}
+.doc-n{font-size:11px;color:#444;flex:1;line-height:1.3;}
+.doc-t{font-size:9px;padding:2px 7px;border-radius:20px;flex-shrink:0;white-space:nowrap;}
+.warn{display:flex;gap:7px;align-items:flex-start;padding:7px 10px;background:#FFFBEB;border-left:3px solid #F59E0B;}
 .warn-t{font-size:11px;color:#92400E;line-height:1.5;}
-.card-foot{padding:0.5rem 1rem;border-top:0.5px solid #f2f2f2;display:-webkit-flex;display:flex;justify-content:space-between;}
+.card-foot{padding:0.5rem 1rem;border-top:0.5px solid #f2f2f2;display:flex;justify-content:space-between;}
 .foot-t{font-size:9px;color:#ccc;}
-
-/* COVER */
-.cover{background:#1a1a1a;border-radius:12px;overflow:hidden;margin-bottom:0.75rem;}
+.cover{background:#1a1a1a;border-radius:12px;overflow:hidden;margin-bottom:0.875rem;}
 .cover-stripe{height:5px;background:#E8A800;}
-.cover-body{padding:1.375rem;}
+.cover-body{padding:1.5rem;}
 .cover-div{width:34px;height:2px;background:#E8A800;margin-bottom:1.125rem;}
-.cover-h{font-size:28px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:4px;}
+.cover-h{font-size:30px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:4px;}
 .cover-sub{font-size:11px;color:#555;margin-bottom:1.375rem;}
-.toc-item{display:-webkit-flex;display:flex;align-items:center;gap:10px;margin-bottom:7px;padding:3px 0;}
-.toc-dot{width:9px;height:9px;border-radius:2px;-webkit-flex-shrink:0;flex-shrink:0;}
-.toc-lbl{font-size:11px;color:#999;-webkit-flex:1;flex:1;}
+.toc-item{display:flex;align-items:center;gap:10px;margin-bottom:7px;padding:3px 0;cursor:pointer;}
+.toc-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
+.toc-lbl{font-size:11px;color:#999;flex:1;}
 .toc-pg{font-size:10px;color:#444;}
-.cover-bot{border-top:1px solid #2a2a2a;padding-top:0.875rem;display:-webkit-flex;display:flex;justify-content:space-between;margin-top:1.375rem;-webkit-flex-wrap:wrap;flex-wrap:wrap;gap:8px;}
-
-/* SIGN */
-.sign{background:#fff;border-radius:12px;border:0.5px solid rgba(0,0,0,0.07);padding:1rem;margin-bottom:0.75rem;}
-.sign-grid{display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;gap:12px;margin-top:0.75rem;}
-.sign-f{border-bottom:0.5px solid #ddd;padding-bottom:4px;-webkit-flex:0 0 calc(50% - 6px);flex:0 0 calc(50% - 6px);}
+.cover-bot{border-top:1px solid #2a2a2a;padding-top:0.875rem;display:flex;justify-content:space-between;margin-top:1.5rem;flex-wrap:wrap;gap:8px;}
+.sign{background:#fff;border-radius:12px;border:0.5px solid rgba(0,0,0,0.07);padding:1rem;margin-bottom:0.875rem;}
+.sign-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:0.75rem;}
+.sign-f{border-bottom:0.5px solid #ddd;padding-bottom:4px;}
 .sign-fl{font-size:9px;color:#ccc;margin-bottom:6px;}
-
-/* DIVIDER */
-.divp{border-radius:12px;overflow:hidden;margin-bottom:0.75rem;}
-.divp-body{padding:1.375rem;}
+.divp{border-radius:12px;overflow:hidden;margin-bottom:0.875rem;}
+.divp-body{padding:1.5rem;}
 .divp-n{font-size:56px;font-weight:700;opacity:0.15;line-height:1;}
-.divp-t{font-size:20px;font-weight:700;margin-bottom:3px;}
-.divp-s{font-size:11px;opacity:0.6;margin-bottom:1.125rem;}
-.divp-ri{display:-webkit-flex;display:flex;align-items:flex-start;gap:9px;padding:7px 10px;background:rgba(255,255,255,0.08);border-radius:8px;margin-bottom:5px;}
-.divp-ri:active{background:rgba(255,255,255,0.15);}
-.divp-code{font-size:9px;font-weight:600;opacity:0.6;min-width:36px;-webkit-flex-shrink:0;flex-shrink:0;padding-top:1px;}
-.divp-name{font-size:12px;-webkit-flex:1;flex:1;line-height:1.3;}
-.divp-pg{font-size:10px;opacity:0.4;-webkit-flex-shrink:0;flex-shrink:0;}
-
-/* NAV BTNS */
-.pnav{display:-webkit-flex;display:flex;gap:6px;margin-bottom:0.75rem;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
+.divp-t{font-size:22px;font-weight:700;margin-bottom:3px;}
+.divp-s{font-size:11px;opacity:0.6;margin-bottom:1.25rem;}
+.divp-ri{display:flex;align-items:flex-start;gap:9px;padding:7px 10px;background:rgba(255,255,255,0.08);border-radius:8px;margin-bottom:5px;cursor:pointer;}
+.divp-ri:hover,.divp-ri:active{background:rgba(255,255,255,0.15);}
+.divp-code{font-size:9px;font-weight:600;opacity:0.6;min-width:36px;flex-shrink:0;padding-top:1px;}
+.divp-name{font-size:12px;flex:1;line-height:1.3;}
+.divp-pg{font-size:10px;opacity:0.4;flex-shrink:0;}
+.pnav{display:flex;gap:6px;margin-bottom:0.875rem;flex-wrap:wrap;}
 .pnav-btn{background:#fff;border:0.5px solid #ddd;border-radius:8px;padding:6px 11px;font-size:11px;color:#666;cursor:pointer;font-family:inherit;min-height:34px;}
-.pnav-btn:active{background:#F5F4F0;}
-.pager{display:-webkit-flex;display:flex;gap:6px;margin-top:4px;}
-.pg-btn{background:#fff;border:0.5px solid #ddd;border-radius:8px;padding:8px 12px;font-size:11px;color:#555;cursor:pointer;font-family:inherit;-webkit-flex:1;flex:1;line-height:1.4;text-align:inherit;}
-.pg-btn:active{background:#F5F4F0;}
-
-::-webkit-scrollbar{display:none;}
+.pnav-btn:hover,.pnav-btn:active{background:#F5F4F0;}
+.pager{display:flex;gap:6px;margin-top:4px;padding-bottom:8px;}
+.pg-btn{background:#fff;border:0.5px solid #ddd;border-radius:8px;padding:8px 12px;font-size:11px;color:#555;cursor:pointer;font-family:inherit;flex:1;line-height:1.4;}
+.pg-btn:hover,.pg-btn:active{background:#F5F4F0;}
+@media(max-width:768px){
+  .app{flex-direction:column;}
+  .sidebar{display:none;}
+  .topbar{display:flex;}
+  .bottomnav{display:block;}
+  .main{padding-bottom:calc(58px + env(safe-area-inset-bottom));}
+  .main-inner{padding:0.875rem;}
+  .cover-h{font-size:26px;}
+}
+@media(min-width:769px) and (max-width:1024px){.sidebar{width:220px;}}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-thumb{background:#ddd;border-radius:3px;}
 </style>
 </head>
 <body>
-<div id="app">
-
-  <!-- TOP BAR -->
-  <div id="topbar">
-    <div class="tb-logo">
-      <div class="tb-icon">ТХ</div>
-      <div>
-        <div class="tb-title">ТЕХНО ХОЛДИНГ</div>
-        <div class="tb-sub">Книга прораба</div>
-      </div>
+<div class="app">
+  <div class="topbar" id="topbar">
+    <div class="logo-box" style="flex:1">
+      <div class="logo-icon">ТХ</div>
+      <div><div class="logo-name">ТЕХНО ХОЛДИНГ</div><div class="logo-sub">Книга прораба</div></div>
     </div>
-    <button class="tb-menu" onclick="openD()" aria-label="Меню">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="tb-menu" onclick="openD()"><span></span><span></span><span></span></button>
   </div>
-
-  <!-- SCROLL AREA -->
-  <div id="scroll-wrap">
-    <div id="content"></div>
+  <div class="sidebar">
+    <div class="sb-logo"><div class="logo-box"><div class="logo-icon">ТХ</div><div><div class="logo-name">ТЕХНО ХОЛДИНГ</div><div class="logo-sub">Строительная компания</div></div></div></div>
+    <div class="sb-book-lbl">Книга прораба · v2.0</div>
+    <div id="sb-nav"></div>
+    <div class="sb-foot">Версия 2.0 · 2026<br>Техно Холдинг · Челябинск</div>
   </div>
-
-  <!-- BOTTOM NAV -->
-  <nav id="bottomnav"></nav>
-
+  <div class="main" id="main-scroll"><div class="main-inner" id="content"></div></div>
+  <nav class="bottomnav" id="bottomnav"></nav>
 </div>
-
-<!-- OVERLAY -->
 <div id="overlay" onclick="closeD()"></div>
-
-<!-- DRAWER -->
 <div id="drawer">
   <div class="dr-head">
-    <div class="tb-logo">
-      <div class="tb-icon">ТХ</div>
-      <div>
-        <div class="tb-title">ТЕХНО ХОЛДИНГ</div>
-        <div class="tb-sub">Книга прораба v2.0</div>
-      </div>
-    </div>
+    <div class="logo-box"><div class="logo-icon">ТХ</div><div><div class="logo-name">ТЕХНО ХОЛДИНГ</div><div class="logo-sub">Книга прораба v2.0</div></div></div>
     <button class="dr-close" onclick="closeD()">✕</button>
   </div>
   <div class="dr-scroll" id="dr-nav"></div>
   <div class="dr-foot">Версия 2.0 · 2026<br>Челябинск, ул. Труда 174</div>
 </div>
-
 <script>
 const SECTIONS = [
   {
@@ -544,243 +526,154 @@ const SECTIONS = [
   },
 ];
 
-/* ===== DRAWER ===== */
-function openD(){
-  document.getElementById('overlay').classList.add('on');
-  document.getElementById('drawer').classList.add('on');
-}
-function closeD(){
-  document.getElementById('overlay').classList.remove('on');
-  document.getElementById('drawer').classList.remove('on');
-}
+function openD(){document.getElementById('overlay').classList.add('on');document.getElementById('drawer').classList.add('on');}
+function closeD(){document.getElementById('overlay').classList.remove('on');document.getElementById('drawer').classList.remove('on');}
 
-/* ===== BUILD NAV ===== */
-function buildNav(ctnId, pfx){
-  const ctn = document.getElementById(ctnId);
-  ctn.innerHTML = SECTIONS.map(s=>`
-    <div class="sec-group" id="${pfx}${s.id}">
-      <div class="sec-head" onclick="togSec('${pfx}${s.id}')">
-        <div class="sec-dot" style="background:${s.color}"></div>
-        <span class="sec-num">${s.num}</span>
-        <span class="sec-lbl">${s.title}</span>
-        <span class="sec-arr">&#9658;</span>
-      </div>
-      <div class="reg-list">
-        ${s.regs.map(r=>`
-        <div class="ri" id="${pfx}r-${r.id}" onclick="goReg('${s.id}','${r.id}')">
-          <span class="ri-code">${r.code}</span>
-          <span class="ri-title">${r.title}</span>
-        </div>`).join('')}
-      </div>
-    </div>`).join('');
+function buildNav(id){
+  document.getElementById(id).innerHTML=SECTIONS.map(s=>
+    '<div class="sec-group" id="'+id+'-'+s.id+'">'
+    +'<div class="sec-head" onclick="togSec(''+id+'-'+s.id+'')">'
+    +'<div class="sec-dot" style="background:'+s.color+'"></div>'
+    +'<span class="sec-num">'+s.num+'</span>'
+    +'<span class="sec-lbl">'+s.title+'</span>'
+    +'<span class="sec-arr">&#9658;</span></div>'
+    +'<div class="reg-list">'
+    +s.regs.map(r=>'<div class="ri" id="'+id+'-r-'+r.id+'" onclick="goReg(''+s.id+'',''+r.id+'')">'
+    +'<span class="ri-code">'+r.code+'</span><span class="ri-title">'+r.title+'</span></div>').join('')
+    +'</div></div>').join('');
 }
 
 function buildBN(){
-  const bn = document.getElementById('bottomnav');
-  bn.innerHTML = `<div class="bn-inner">
-    <button class="bn-btn act" id="bn-home" onclick="goHome()">
-      <span class="bn-icon">&#128214;</span>
-      <span class="bn-lbl">Обложка</span>
-    </button>
-    ${SECTIONS.map(s=>`
-    <button class="bn-btn" id="bn-${s.id}" onclick="goSec('${s.id}')">
-      <div class="bn-dot" style="background:${s.color}"></div>
-      <span class="bn-lbl">${s.num}. ${s.title.split(' ')[0]}</span>
-    </button>`).join('')}
-  </div>`;
+  document.getElementById('bottomnav').innerHTML='<div class="bn-inner">'
+  +'<button class="bn-btn act" id="bn-home" onclick="goHome()"><span class="bn-icon">&#128214;</span><span class="bn-lbl">Обложка</span></button>'
+  +SECTIONS.map(s=>'<button class="bn-btn" id="bn-'+s.id+'" onclick="goSec(''+s.id+'')">'
+  +'<div class="bn-dot" style="background:'+s.color+'"></div>'
+  +'<span class="bn-lbl">'+s.num+'. '+s.title.split(' ')[0]+'</span></button>').join('')
+  +'</div>';
 }
 
-function togSec(gid){
-  document.getElementById(gid).classList.toggle('open');
-}
+function togSec(gid){document.getElementById(gid).classList.toggle('open');}
 
-/* ===== RENDER ===== */
+function pwaHint(){
+  var isIOS=/iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
+  var isAndroid=/android/.test(navigator.userAgent.toLowerCase());
+  var isStandalone=window.navigator.standalone||window.matchMedia('(display-mode: standalone)').matches;
+  if(isStandalone||localStorage.getItem('pwa-dismissed')) return '';
+  if(isIOS) return '<div class="pwa-banner" id="pwa-b"><div class="logo-icon" style="width:40px;height:40px;font-size:13px;flex-shrink:0;">ТХ</div>'
+    +'<div class="pwa-text"><div class="pwa-title">Добавить на экран домой</div>'
+    +'<div class="pwa-sub">Нажмите &#9633;&#8593; внизу Safari → «На экран домой»</div></div>'
+    +'<button class="pwa-close" onclick="dismissPWA()">✕</button></div>';
+  if(isAndroid) return '<div class="pwa-banner" id="pwa-b"><div class="logo-icon" style="width:40px;height:40px;font-size:13px;flex-shrink:0;">ТХ</div>'
+    +'<div class="pwa-text"><div class="pwa-title">Добавить на экран</div>'
+    +'<div class="pwa-sub">Нажмите ⋮ в Chrome → «Добавить на главный экран»</div></div>'
+    +'<button class="pwa-close" onclick="dismissPWA()">✕</button></div>';
+  return '';
+}
+function dismissPWA(){localStorage.setItem('pwa-dismissed','1');var b=document.getElementById('pwa-b');if(b)b.remove();}
+
 function rCover(){
-  return `
-  <div class="cover">
-    <div class="cover-stripe"></div>
-    <div class="cover-body">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;">
-        <div class="tb-icon" style="width:36px;height:36px;font-size:12px;">ТХ</div>
-        <div>
-          <div class="tb-title" style="font-size:12px;">ТЕХНО ХОЛДИНГ</div>
-          <div class="tb-sub" style="color:#555;">Строительная компания · Челябинск</div>
-        </div>
-      </div>
-      <div class="cover-div"></div>
-      <div class="cover-h">Книга<br>прораба</div>
-      <div class="cover-sub">Регламенты и стандарты · Версия 2.0 · 2026</div>
-      <div style="margin-bottom:1.25rem;">
-        ${SECTIONS.map(s=>`
-        <div class="toc-item" onclick="goSec('${s.id}')">
-          <div class="toc-dot" style="background:${s.color}"></div>
-          <span style="font-size:10px;color:#555;width:13px;">${s.num}</span>
-          <span class="toc-lbl">${s.title}</span>
-          <span class="toc-pg">стр. ${s.pg}</span>
-        </div>`).join('')}
-      </div>
-      <div class="cover-bot">
-        <span style="font-size:10px;color:#555;">Прораб: _______________________</span>
-        <span style="font-size:10px;color:#444;">Дата: _________</span>
-      </div>
-    </div>
-  </div>
-  <div class="sign">
-    <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:5px;">Лист ознакомления</div>
-    <div style="font-size:11px;color:#777;line-height:1.6;">Я, нижеподписавшийся, получил Книгу прораба версии 2.0 (2026), ознакомлен с содержанием всех регламентов и обязуюсь соблюдать установленные стандарты работы в ООО «ТехноХОЛДИНГ».</div>
-    <div class="sign-grid">
-      <div class="sign-f"><div class="sign-fl">ФИО полностью</div></div>
-      <div class="sign-f"><div class="sign-fl">Подпись</div></div>
-      <div class="sign-f"><div class="sign-fl">Дата</div></div>
-      <div class="sign-f"><div class="sign-fl">Должность</div></div>
-    </div>
-  </div>`;
+  return pwaHint()
+  +'<div class="cover"><div class="cover-stripe"></div><div class="cover-body">'
+  +'<div class="logo-box" style="margin-bottom:1.375rem"><div class="logo-icon" style="width:38px;height:38px;font-size:13px">ТХ</div>'
+  +'<div><div class="logo-name" style="font-size:13px">ТЕХНО ХОЛДИНГ</div><div class="logo-sub" style="color:#555">Строительная компания · Челябинск</div></div></div>'
+  +'<div class="cover-div"></div><div class="cover-h">Книга<br>прораба</div>'
+  +'<div class="cover-sub">Регламенты и стандарты работы · Версия 2.0 · 2026</div><div style="margin-bottom:1.375rem">'
+  +SECTIONS.map(s=>'<div class="toc-item" onclick="goSec(''+s.id+')">'
+  +'<div class="toc-dot" style="background:'+s.color+'"></div>'
+  +'<span style="font-size:10px;color:#555;width:13px">'+s.num+'</span>'
+  +'<span class="toc-lbl">'+s.title+'</span>'
+  +'<span class="toc-pg">стр. '+s.pg+'</span></div>').join('')
+  +'</div><div class="cover-bot">'
+  +'<span style="font-size:10px;color:#555">Прораб: _______________________</span>'
+  +'<span style="font-size:10px;color:#444">Дата: _________</span>'
+  +'</div></div></div>'
+  +'<div class="sign"><div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:5px">Лист ознакомления</div>'
+  +'<div style="font-size:11px;color:#777;line-height:1.6">Я, нижеподписавшийся, получил Книгу прораба версии 2.0 (2026), ознакомлен с содержанием всех регламентов и обязуюсь соблюдать установленные стандарты работы в ООО «ТехноХОЛДИНГ».</div>'
+  +'<div class="sign-grid"><div class="sign-f"><div class="sign-fl">ФИО полностью</div></div>'
+  +'<div class="sign-f"><div class="sign-fl">Подпись</div></div>'
+  +'<div class="sign-f"><div class="sign-fl">Дата</div></div>'
+  +'<div class="sign-f"><div class="sign-fl">Должность</div></div></div></div>';
 }
 
 function rDiv(s){
-  return `
-  <div class="divp" style="background:${s.color}">
-    <div class="divp-body">
-      <div class="divp-n" style="color:#fff">${s.num}</div>
-      <div class="divp-t" style="color:#fff">${s.title}</div>
-      <div class="divp-s" style="color:#fff">стр. ${s.pg}</div>
-      ${s.regs.map(r=>`
-      <div class="divp-ri" onclick="goReg('${s.id}','${r.id}')">
-        <span class="divp-code" style="color:#fff">${r.code}</span>
-        <span class="divp-name" style="color:#fff">${r.title}</span>
-        <span class="divp-pg" style="color:#fff">стр.${r.page}</span>
-      </div>`).join('')}
-    </div>
-  </div>`;
+  return '<div class="divp" style="background:'+s.color+'">'
+  +'<div class="divp-body"><div class="divp-n" style="color:#fff">'+s.num+'</div>'
+  +'<div class="divp-t" style="color:#fff">'+s.title+'</div>'
+  +'<div class="divp-s" style="color:#fff">стр. '+s.pg+'</div>'
+  +s.regs.map(r=>'<div class="divp-ri" onclick="goReg(''+s.id+'',''+r.id+'')">'
+  +'<span class="divp-code" style="color:#fff">'+r.code+'</span>'
+  +'<span class="divp-name" style="color:#fff">'+r.title+'</span>'
+  +'<span class="divp-pg" style="color:#fff">стр.'+r.page+'</span></div>').join('')
+  +'</div></div>';
 }
 
 function rReg(s,r){
-  const ac=s.color, tc=s.tc;
-  return `
-  <div class="card">
-    <div class="card-head" style="border-bottom-color:${ac}">
-      <div style="flex:1">
-        <div class="card-title">${r.title}</div>
-        <div class="card-meta">Раздел ${s.num} · ${s.title}</div>
-      </div>
-      <div class="card-badge" style="background:${ac};color:${tc}">${r.code}</div>
-    </div>
-    <div class="card-body">
-      <div class="blk">
-        <div class="blk-lbl">&#127919; Цель</div>
-        <div class="goal">${r.goal}</div>
-      </div>
-      <div class="blk">
-        <div class="blk-lbl">&#128101; Ответственные</div>
-        <div class="chips">${r.resp.map(x=>`<div class="chip"><span>${x.i}</span>${x.l}</div>`).join('')}</div>
-      </div>
-      <div class="blk">
-        <div class="blk-lbl">&#9201; Сроки</div>
-        <div class="dls">${r.deadlines.map(d=>`<div class="dl"><div class="dl-v">${d.v}</div><div class="dl-l">${d.l}</div></div>`).join('')}</div>
-      </div>
-      <div class="blk">
-        <div class="blk-lbl">&#128203; Порядок действий</div>
-        ${r.steps.map((st,i)=>`
-        <div class="step">
-          <div class="step-n" style="background:${ac};color:${tc}">${i+1}</div>
-          <div style="flex:1">
-            <div class="step-t">${st.t}</div>
-            ${st.h?`<div class="step-h">${st.h}</div>`:''}
-          </div>
-        </div>`).join('')}
-      </div>
-      <div class="blk">
-        <div class="blk-lbl">&#128196; Документы</div>
-        ${r.docs.map(d=>`<div class="doc"><span style="font-size:13px;color:#ccc">&#128206;</span><span class="doc-n">${d.n}</span><span class="doc-t" style="background:${d.bg};color:${d.tc}">${d.tag}</span></div>`).join('')}
-      </div>
-      <div class="warn">
-        <span style="font-size:13px;flex-shrink:0;margin-top:1px">&#9888;&#65039;</span>
-        <span class="warn-t">${r.warn}</span>
-      </div>
-    </div>
-    <div class="card-foot">
-      <span class="foot-t">Версия 2.0 · 2026</span>
-      <span class="foot-t">стр. ${r.page}</span>
-    </div>
-  </div>`;
+  var ac=s.color,tc=s.tc;
+  return '<div class="card">'
+  +'<div class="card-head" style="border-bottom-color:'+ac+'">'
+  +'<div style="flex:1"><div class="card-title">'+r.title+'</div>'
+  +'<div class="card-meta">Раздел '+s.num+' · '+s.title+'</div></div>'
+  +'<div class="card-badge" style="background:'+ac+';color:'+tc+'">'+r.code+'</div></div>'
+  +'<div class="card-body">'
+  +'<div class="blk"><div class="blk-lbl">&#127919; Цель</div><div class="goal">'+r.goal+'</div></div>'
+  +'<div class="blk"><div class="blk-lbl">&#128101; Ответственные</div><div class="chips">'
+  +r.resp.map(x=>'<div class="chip"><span>'+x.i+'</span>'+x.l+'</div>').join('')+'</div></div>'
+  +'<div class="blk"><div class="blk-lbl">&#9201; Сроки</div><div class="dls">'
+  +r.deadlines.map(d=>'<div class="dl"><div class="dl-v">'+d.v+'</div><div class="dl-l">'+d.l+'</div></div>').join('')+'</div></div>'
+  +'<div class="blk"><div class="blk-lbl">&#128203; Порядок действий</div>'
+  +r.steps.map(function(st,i){return '<div class="step"><div class="step-n" style="background:'+ac+';color:'+tc+'">'+(i+1)+'</div>'
+  +'<div style="flex:1"><div class="step-t">'+st.t+'</div>'+(st.h?'<div class="step-h">'+st.h+'</div>':'')+'</div></div>';}).join('')+'</div>'
+  +'<div class="blk"><div class="blk-lbl">&#128196; Документы</div>'
+  +r.docs.map(d=>'<div class="doc-row"><span style="font-size:13px;color:#ccc">&#128206;</span>'
+  +'<span class="doc-n">'+d.n+'</span><span class="doc-t" style="background:'+d.bg+';color:'+d.tc+'">'+d.tag+'</span></div>').join('')+'</div>'
+  +'<div class="warn"><span style="font-size:13px;flex-shrink:0;margin-top:1px">&#9888;&#65039;</span>'
+  +'<span class="warn-t">'+r.warn+'</span></div>'
+  +'</div><div class="card-foot"><span class="foot-t">Версия 2.0 · 2026</span><span class="foot-t">стр. '+r.page+'</span></div></div>';
 }
 
-/* ===== NAVIGATION ===== */
-function setHTML(html){
-  document.getElementById('content').innerHTML = html;
-  document.getElementById('scroll-wrap').scrollTop = 0;
-  closeD();
+function setHTML(html){document.getElementById('content').innerHTML=html;document.getElementById('main-scroll').scrollTop=0;closeD();}
+function clrActive(){document.querySelectorAll('.ri').forEach(function(e){e.classList.remove('act');});document.querySelectorAll('.bn-btn').forEach(function(e){e.classList.remove('act');});}
+
+function openSec(sid){
+  ['sb-nav','dr-nav'].forEach(function(p){var el=document.getElementById(p+'-'+sid);if(el)el.classList.add('open');});
 }
 
-function clrActive(){
-  document.querySelectorAll('.ri').forEach(e=>e.classList.remove('act'));
-  document.querySelectorAll('.bn-btn').forEach(e=>e.classList.remove('act'));
-}
-
-function setBNActive(id){
-  const el = document.getElementById(id);
-  if(el) el.classList.add('act');
-}
-
-function openSecInNav(sid){
-  ['d-','m-'].forEach(p=>{
-    const el = document.getElementById(p+sid);
-    if(el) el.classList.add('open');
-  });
-}
-
-function goHome(){
-  setHTML(rCover());
-  clrActive();
-  setBNActive('bn-home');
-}
+function goHome(){setHTML(rCover());clrActive();var b=document.getElementById('bn-home');if(b)b.classList.add('act');}
 
 function goSec(sid){
-  const s = SECTIONS.find(x=>x.id===sid);
-  setHTML(rDiv(s));
-  clrActive();
-  setBNActive('bn-'+sid);
-  openSecInNav(sid);
+  var s=SECTIONS.find(function(x){return x.id===sid;});
+  setHTML(rDiv(s));clrActive();
+  var b=document.getElementById('bn-'+sid);if(b)b.classList.add('act');
+  openSec(sid);
 }
 
 function goReg(sid,rid){
-  const s = SECTIONS.find(x=>x.id===sid);
-  const r = s.regs.find(x=>x.id===rid);
-  const all = SECTIONS.flatMap(sec=>sec.regs.map(rg=>({sid:sec.id,rid:rg.id,code:rg.code,title:rg.title})));
-  const idx = all.findIndex(x=>x.rid===rid);
-
-  let html = `<div class="pnav">
-    <button class="pnav-btn" onclick="goHome()">← Обложка</button>
-    <button class="pnav-btn" onclick="goSec('${sid}')" style="color:${s.color};font-weight:600">${s.num}. ${s.title}</button>
-  </div>`;
-  html += rReg(s,r);
-  html += `<div class="pager">`;
-  if(idx>0){
-    const p=all[idx-1];
-    html+=`<button class="pg-btn" onclick="goReg('${p.sid}','${p.rid}')" style="text-align:left">&#8592; ${p.code}<br><span style="color:#bbb;font-size:10px">${p.title}</span></button>`;
-  }
-  if(idx<all.length-1){
-    const n=all[idx+1];
-    html+=`<button class="pg-btn" onclick="goReg('${n.sid}','${n.rid}')" style="text-align:right">${n.code} &#8594;<br><span style="color:#bbb;font-size:10px">${n.title}</span></button>`;
-  }
-  html+=`</div>`;
-
-  setHTML(html);
-  clrActive();
-  ['d-','m-'].forEach(p=>{
-    const el=document.getElementById(p+'r-'+rid);
-    if(el) el.classList.add('act');
+  var s=SECTIONS.find(function(x){return x.id===sid;});
+  var r=s.regs.find(function(x){return x.id===rid;});
+  var all=[];
+  SECTIONS.forEach(function(sec){sec.regs.forEach(function(rg){all.push({sid:sec.id,rid:rg.id,code:rg.code,title:rg.title});});});
+  var idx=all.findIndex(function(x){return x.rid===rid;});
+  var html='<div class="pnav">'
+  +'<button class="pnav-btn" onclick="goHome()">&#8592; Обложка</button>'
+  +'<button class="pnav-btn" onclick="goSec(''+sid+'')" style="color:'+s.color+';font-weight:600">'+s.num+'. '+s.title+'</button></div>';
+  html+=rReg(s,r);
+  html+='<div class="pager">';
+  if(idx>0){var p=all[idx-1];html+='<button class="pg-btn" onclick="goReg(''+p.sid+'',''+p.rid+'')" style="text-align:left">&#8592; '+p.code+'<br><span style="color:#bbb;font-size:10px">'+p.title+'</span></button>';}
+  if(idx<all.length-1){var n=all[idx+1];html+='<button class="pg-btn" onclick="goReg(''+n.sid+'',''+n.rid+'')" style="text-align:right">'+n.code+' &#8594;<br><span style="color:#bbb;font-size:10px">'+n.title+'</span></button>';}
+  html+='</div>';
+  setHTML(html);clrActive();
+  ['sb-nav','dr-nav'].forEach(function(p){
+    var el=document.getElementById(p+'-r-'+rid);if(el)el.classList.add('act');
+    var sg=document.getElementById(p+'-'+sid);if(sg)sg.classList.add('open');
   });
-  openSecInNav(sid);
-  setBNActive('bn-'+sid);
+  var b=document.getElementById('bn-'+sid);if(b)b.classList.add('act');
 }
 
-/* ===== INIT ===== */
-buildNav('dr-nav','m-');
+buildNav('sb-nav');
+buildNav('dr-nav');
 buildBN();
 goHome();
-// open s1 in drawer by default
-togSec('m-s1');
+document.getElementById('sb-nav-s1').classList.add('open');
 </script>
 </body>
 </html>
