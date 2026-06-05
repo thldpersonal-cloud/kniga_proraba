@@ -4,14 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Книга прораба — Техно Холдинг</title>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Книга прораба">
-<meta name="application-name" content="Книга прораба">
-<meta name="theme-color" content="#1a1a1a">
-<meta name="mobile-web-app-capable" content="yes">
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjI0IiBmaWxsPSIjMWExYTFhIi8+PHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSI4IiByeD0iNCIgZmlsbD0iI0U4QTgwMCIvPjx0ZXh0IHg9Ijk2IiB5PSIxMTgiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjgwIiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjRThBODAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7QotClPC90ZXh0Pjwvc3ZnPg==">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjI0IiBmaWxsPSIjMWExYTFhIi8+PHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSI4IiByeD0iNCIgZmlsbD0iI0U4QTgwMCIvPjx0ZXh0IHg9Ijk2IiB5PSIxMTgiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjgwIiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjRThBODAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7QotClPC90ZXh0Pjwvc3ZnPg==">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F5F4F0;color:#1a1a1a;min-height:100vh;}
@@ -99,9 +91,107 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .sign-field{border-bottom:0.5px solid #ddd;padding-bottom:4px;margin-bottom:12px;}
 .sign-field-label{font-size:10px;color:#bbb;margin-bottom:8px;}
 .sign-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+
+.ud-block{margin-top:6px;}
+.ud-item{display:flex;align-items:center;gap:8px;padding:6px 10px;background:#F0FDF4;border:0.5px solid #86EFAC;border-radius:8px;margin-top:5px;}
+.ud-link{font-size:12px;color:#166534;flex:1;line-height:1.3;text-decoration:none;}
+.ud-link:hover{text-decoration:underline;}
+.ud-size{font-size:10px;color:#aaa;flex-shrink:0;}
+.ud-del{background:none;border:none;color:#ccc;font-size:16px;cursor:pointer;padding:0 2px;}
+.ud-del:hover{color:#ef4444;}
+.ud-btn{display:flex;align-items:center;gap:6px;padding:6px 12px;background:transparent;border:1px dashed #d1d5db;border-radius:8px;font-size:11px;color:#9ca3af;cursor:pointer;margin-top:6px;width:100%;font-family:inherit;}
+.ud-btn:hover{border-color:#E8A800;color:#E8A800;background:#FAEEDA;}
+.ud-prog{height:3px;background:#e5e7eb;border-radius:2px;margin-top:6px;overflow:hidden;display:none;}
+.ud-bar{height:100%;background:#E8A800;border-radius:2px;transition:width 0.3s;width:0%;}
+.tm-ov{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:300;display:flex;align-items:center;justify-content:center;padding:1rem;}
+.tm-box{background:#fff;border-radius:14px;padding:1.25rem;width:100%;max-width:400px;}
+.tm-ttl{font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:4px;}
+.tm-sub{font-size:11px;color:#999;margin-bottom:1rem;line-height:1.5;}
+.tm-lbl{font-size:11px;color:#666;margin-bottom:4px;margin-top:10px;}
+.tm-inp{width:100%;border:1px solid #e5e7eb;border-radius:8px;padding:8px 10px;font-size:12px;font-family:inherit;outline:none;}
+.tm-inp:focus{border-color:#E8A800;}
+.tm-hint{font-size:10px;color:#bbb;margin-top:4px;line-height:1.5;}
+.tm-btns{display:flex;gap:8px;margin-top:1rem;}
+.tm-cc{flex:1;padding:8px;background:#f5f4f0;border:none;border-radius:8px;font-size:12px;color:#666;cursor:pointer;font-family:inherit;}
+.tm-ss{flex:2;padding:8px;background:#E8A800;border:none;border-radius:8px;font-size:12px;font-weight:600;color:#412402;cursor:pointer;font-family:inherit;}
+
+/* ===== РЕЖИМ АДМИНИСТРАТОРА ===== */
+.admin-topbar{display:none;background:#2a1500;border-bottom:1px solid #E8A800;padding:6px 1.5rem;align-items:center;gap:12px;flex-shrink:0;}
+.admin-topbar.on{display:flex;}
+.admin-badge{background:#E8A800;color:#412402;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:0.05em;}
+.admin-hint{font-size:11px;color:#888;flex:1;}
+.btn-share{display:flex;align-items:center;gap:6px;background:#1D9E75;border:none;border-radius:8px;padding:6px 14px;font-size:12px;font-weight:600;color:#fff;cursor:pointer;font-family:inherit;}
+.btn-share:hover{background:#178a64;}
+.btn-exit-admin{display:flex;align-items:center;gap:6px;background:transparent;border:1px solid #333;border-radius:8px;padding:6px 12px;font-size:11px;color:#888;cursor:pointer;font-family:inherit;}
+.btn-exit-admin:hover{border-color:#666;color:#ccc;}
+
+/* Share modal */
+.sh-ov{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:400;display:flex;align-items:center;justify-content:center;padding:1rem;}
+.sh-box{background:#fff;border-radius:14px;padding:1.5rem;width:100%;max-width:440px;}
+.sh-ttl{font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:4px;}
+.sh-sub{font-size:12px;color:#999;margin-bottom:1.25rem;line-height:1.5;}
+.sh-url{background:#F5F4F0;border:1px solid #e5e7eb;border-radius:8px;padding:10px 12px;font-size:12px;color:#333;word-break:break-all;margin-bottom:10px;line-height:1.5;}
+.sh-btns{display:flex;gap:8px;}
+.sh-copy{flex:2;padding:9px;background:#E8A800;border:none;border-radius:8px;font-size:13px;font-weight:600;color:#412402;cursor:pointer;font-family:inherit;}
+.sh-close{flex:1;padding:9px;background:#f5f4f0;border:none;border-radius:8px;font-size:12px;color:#666;cursor:pointer;font-family:inherit;}
+
+/* Admin editable */
+.editable{cursor:pointer;border-radius:4px;transition:background 0.15s;}
+.admin-mode .editable:hover{background:rgba(232,168,0,0.1);outline:1px dashed rgba(232,168,0,0.4);}
+.edit-wrap{}
+.edit-textarea{width:100%;border:1.5px solid #E8A800;border-radius:8px;padding:8px;font-size:12px;font-family:inherit;resize:vertical;outline:none;background:#FFFEF5;color:#1a1a1a;line-height:1.5;margin-top:4px;}
+.edit-input{width:100%;border:1.5px solid #E8A800;border-radius:8px;padding:6px 8px;font-size:14px;font-family:inherit;outline:none;background:#FFFEF5;color:#1a1a1a;margin-top:4px;font-weight:600;}
+.edit-btns{display:flex;gap:6px;margin-top:6px;}
+.edit-save{padding:5px 14px;background:#E8A800;border:none;border-radius:6px;font-size:11px;font-weight:600;color:#412402;cursor:pointer;font-family:inherit;}
+.edit-cancel{padding:5px 14px;background:#f5f4f0;border:none;border-radius:6px;font-size:11px;color:#666;cursor:pointer;font-family:inherit;}
+
+/* Upload (только для admin) */
+.ud-btn{display:flex;align-items:center;gap:6px;padding:6px 12px;background:transparent;border:1px dashed #d1d5db;border-radius:8px;font-size:11px;color:#9ca3af;cursor:pointer;margin-top:6px;width:100%;font-family:inherit;}
+.ud-btn:hover{border-color:#E8A800;color:#E8A800;background:#FAEEDA;}
+.ud-prog{height:3px;background:#e5e7eb;border-radius:2px;margin-top:6px;overflow:hidden;display:none;}
+.ud-bar{height:100%;background:#E8A800;border-radius:2px;transition:width 0.3s;width:0%;}
+.tm-ov{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:300;display:flex;align-items:center;justify-content:center;padding:1rem;}
+.tm-box{background:#fff;border-radius:14px;padding:1.25rem;width:100%;max-width:400px;}
+.tm-ttl{font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:4px;}
+.tm-sub{font-size:11px;color:#999;margin-bottom:1rem;line-height:1.5;}
+.tm-lbl{font-size:11px;color:#666;margin-bottom:4px;margin-top:10px;}
+.tm-inp{width:100%;border:1px solid #e5e7eb;border-radius:8px;padding:8px 10px;font-size:12px;font-family:inherit;outline:none;}
+.tm-inp:focus{border-color:#E8A800;}
+.tm-hint{font-size:10px;color:#bbb;margin-top:4px;line-height:1.5;}
+.tm-btns{display:flex;gap:8px;margin-top:1rem;}
+.tm-cc{flex:1;padding:8px;background:#f5f4f0;border:none;border-radius:8px;font-size:12px;color:#666;cursor:pointer;font-family:inherit;}
+.tm-ss{flex:2;padding:8px;background:#E8A800;border:none;border-radius:8px;font-size:12px;font-weight:600;color:#412402;cursor:pointer;font-family:inherit;}
+
+/* Скрытая кнопка входа в admin */
+.admin-enter{position:fixed;bottom:12px;right:12px;width:28px;height:28px;background:transparent;border:none;cursor:pointer;opacity:0.15;font-size:14px;z-index:50;}
+.admin-enter:hover{opacity:0.5;}
 </style>
 </head>
 <body>
+<!-- ADMIN TOPBAR -->
+<div class="admin-topbar" id="admin-topbar">
+  <span class="admin-badge">⚙ ADMIN</span>
+  <span class="admin-hint">Режим администратора — вы можете редактировать тексты и прикреплять файлы</span>
+  <button class="btn-share" onclick="openShareModal()">🔗 Ссылка для просмотра</button>
+  <button class="btn-exit-admin" onclick="exitAdmin()">Выйти</button>
+</div>
+
+<!-- SHARE MODAL -->
+<div class="sh-ov" id="sh-modal" style="display:none;">
+  <div class="sh-box">
+    <div class="sh-ttl">🔗 Ссылка для прорабов</div>
+    <div class="sh-sub">Отправьте эту ссылку прорабам — они смогут просматривать регламенты и скачивать прикреплённые файлы. Редактирование для них недоступно.</div>
+    <div class="sh-url" id="sh-url"></div>
+    <div class="sh-btns">
+      <button class="sh-copy" id="sh-copy-btn" onclick="copyShareLink()">📋 Копировать ссылку</button>
+      <button class="sh-close" onclick="closeShareModal()">Закрыть</button>
+    </div>
+  </div>
+</div>
+
+<!-- Скрытая кнопка входа в admin -->
+<button class="admin-enter" onclick="enterAdmin()" title="">⚙</button>
+
 <div class="app">
 <div class="sidebar">
   <div class="sidebar-logo">
@@ -570,7 +660,7 @@ function renderReg(s,r){
   <div class="page-sheet">
     <div class="page-header" style="border-color:${ac};">
       <div>
-        <div class="page-title">${r.title}</div>
+        <div class="page-title editable" data-rid="${r.id}" data-field="title" onclick="adminEdit(this)">${r.title}</div>
         <div class="page-meta">Раздел ${s.num} · ${s.title}</div>
       </div>
       <div class="reg-badge" style="background:${ac};color:${tc};">${r.code}</div>
@@ -578,7 +668,7 @@ function renderReg(s,r){
     <div class="page-body">
       <div class="block">
         <div class="block-label">🎯 Цель</div>
-        <div class="goal-box">${r.goal}</div>
+        <div class="goal-box editable" data-rid="${r.id}" data-field="goal" onclick="adminEdit(this)">${r.goal}</div>
       </div>
       <div class="block">
         <div class="block-label">👥 Ответственные</div>
@@ -594,18 +684,21 @@ function renderReg(s,r){
         <div class="step">
           <div class="step-n" style="background:${ac};color:${tc};">${i+1}</div>
           <div>
-            <div class="step-text">${st.t}</div>
-            ${st.h?`<div class="step-hint">${st.h}</div>`:''}
+            <div class="step-text editable" data-rid="${r.id}" data-si="${i}" data-field="t" onclick="adminEdit(this)">${st.t}</div>
+            ${st.h?`<div class="step-hint editable" data-rid="${r.id}" data-si="${i}" data-field="h" onclick="adminEdit(this)">${st.h}</div>`:''}
           </div>
         </div>`).join('')}</div>
       </div>
       <div class="block">
         <div class="block-label">📄 Документы</div>
         ${r.docs.map(d=>`<div class="doc-row"><span class="doc-icon">📎</span><span class="doc-name">${d.n}</span><span class="doc-tag" style="background:${d.bg};color:${d.tc};">${d.tag}</span></div>`).join('')}
+        <div class="ud-block" id="ud-${r.id}"></div>
+        <div class="ud-prog" id="up-${r.id}"><div class="ud-bar" id="ub-${r.id}"></div></div>
+        <button class="ud-btn" id="udbtn-${r.id}" onclick="udUpload('${r.id}')" style="display:none;">&#128206; Прикрепить файл</button>
       </div>
       <div class="warn">
         <span class="warn-icon">⚠️</span>
-        <span style="color:#92400E;">${r.warn}</span>
+        <span class="editable" data-rid="${r.id}" data-field="warn" style="color:#92400E;" onclick="adminEdit(this)">${r.warn}</span>
       </div>
     </div>
     <div class="page-footer">
@@ -651,37 +744,270 @@ function showReg(sid,rid){
 function clearNav(){document.querySelectorAll('.reg-item').forEach(e=>e.classList.remove('active'));}
 
 
-// PWA hint
-function showPWAHint() {
-  var isIOS = /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
-  var isAndroid = /android/.test(navigator.userAgent.toLowerCase());
-  var isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
-  if (isStandalone || localStorage.getItem('pwa-dismissed')) return;
-  var banner = '';
-  if (isIOS) {
-    banner = '<div id="pwa-b" style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:12px;padding:12px 14px;margin-bottom:12px;display:flex;align-items:center;gap:12px;">'
-      + '<div style="width:40px;height:40px;background:#E8A800;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#412402;flex-shrink:0;">ТХ</div>'
-      + '<div style="flex:1"><div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:2px;">Добавить на экран домой</div>'
-      + '<div style="font-size:10px;color:#666;line-height:1.4;">Нажмите &#9633;&#8593; внизу Safari → «На экран домой» — иконка ТХ появится на рабочем столе</div></div>'
-      + '<button onclick="dismissPWA()" style="background:none;border:none;color:#444;font-size:20px;cursor:pointer;flex-shrink:0;padding:0;">✕</button></div>';
-  } else if (isAndroid) {
-    banner = '<div id="pwa-b" style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:12px;padding:12px 14px;margin-bottom:12px;display:flex;align-items:center;gap:12px;">'
-      + '<div style="width:40px;height:40px;background:#E8A800;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#412402;flex-shrink:0;">ТХ</div>'
-      + '<div style="flex:1"><div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:2px;">Добавить на экран</div>'
-      + '<div style="font-size:10px;color:#666;line-height:1.4;">Нажмите ⋮ в Chrome → «Добавить на главный экран»</div></div>'
-      + '<button onclick="dismissPWA()" style="background:none;border:none;color:#444;font-size:20px;cursor:pointer;flex-shrink:0;padding:0;">✕</button></div>';
-  }
-  if (banner) {
-    var content = document.getElementById('main-content');
-    if (content) content.innerHTML = banner + content.innerHTML;
+
+// Отображение прикреплённых файлов (только просмотр)
+function _gD(id){try{return JSON.parse(localStorage.getItem('d'+id)||'[]');}catch(e){return[];}}
+function _rD(id){
+  var el=document.getElementById('ud-'+id);
+  if(!el)return;
+  el.innerHTML='';
+  var docs=_gD(id);
+  for(var i=0;i<docs.length;i++){
+    var d=docs[i];
+    var row=document.createElement('div');row.className='ud-item';
+    var icon=document.createElement('span');icon.textContent='📄';icon.style.fontSize='13px';
+    var link=document.createElement('a');link.className='ud-link';link.href=d.url;link.target='_blank';link.textContent=d.name;
+    var sz=document.createElement('span');sz.className='ud-size';sz.textContent=d.size;
+    // Кнопка скачивания
+    var dl=document.createElement('a');
+    dl.href=d.url;dl.download=d.name;dl.target='_blank';
+    dl.innerHTML='&#8659;';
+    dl.style.cssText='font-size:14px;color:#888;text-decoration:none;flex-shrink:0;padding:0 4px;';
+    dl.title='Скачать';
+    row.appendChild(icon);row.appendChild(link);row.appendChild(sz);row.appendChild(dl);
+    el.appendChild(row);
   }
 }
-function dismissPWA() {
-  localStorage.setItem('pwa-dismissed', '1');
-  var b = document.getElementById('pwa-b');
-  if (b) b.remove();
+function _iD(){SECTIONS.forEach(function(s){s.regs.forEach(function(r){_rD(r.id);});});}
+var _oc=showCover;
+showCover=function(){_oc.apply(this,arguments);setTimeout(_iD,60);};
+var _or=showReg;
+showReg=function(a,b){_or.apply(this,[a,b]);setTimeout(_iD,60);};
+
+
+// ===== РЕЖИМ: admin или view =====
+var IS_ADMIN = false;
+
+function checkMode() {
+  var params = new URLSearchParams(window.location.search);
+  IS_ADMIN = (params.get('mode') === 'admin');
+  if (IS_ADMIN) {
+    document.getElementById('admin-topbar').classList.add('on');
+    document.body.classList.add('admin-mode');
+  }
 }
 
+function enterAdmin() {
+  var url = new URL(window.location.href);
+  url.searchParams.set('mode','admin');
+  window.location.href = url.toString();
+}
+
+function exitAdmin() {
+  var url = new URL(window.location.href);
+  url.searchParams.delete('mode');
+  window.location.href = url.toString();
+}
+
+// ===== ССЫЛКА ДЛЯ ПРОСМОТРА =====
+function openShareModal() {
+  var base = window.location.origin + window.location.pathname;
+  document.getElementById('sh-url').textContent = base;
+  document.getElementById('sh-modal').style.display = 'flex';
+}
+function closeShareModal() {
+  document.getElementById('sh-modal').style.display = 'none';
+}
+function copyShareLink() {
+  var url = document.getElementById('sh-url').textContent;
+  navigator.clipboard.writeText(url).then(function(){
+    var btn = document.getElementById('sh-copy-btn');
+    btn.textContent = 'Скопировано ✓';
+    setTimeout(function(){btn.textContent='📋 Копировать ссылку';}, 2000);
+  });
+}
+
+// ===== РЕДАКТИРОВАНИЕ (только admin) =====
+function _getEdits(){try{return JSON.parse(localStorage.getItem('adm_e')||'{}');}catch(e){return{};}}
+function _saveEdits(d){localStorage.setItem('adm_e',JSON.stringify(d));}
+
+function _applyEdits(){
+  var edits=_getEdits();
+  SECTIONS.forEach(function(s){
+    s.regs.forEach(function(r){
+      if(!edits[r.id])return;
+      var e=edits[r.id];
+      if(e.title)r.title=e.title;
+      if(e.goal)r.goal=e.goal;
+      if(e.warn)r.warn=e.warn;
+      if(e.steps){
+        for(var i=0;i<r.steps.length;i++){
+          if(e.steps[i]){
+            if(e.steps[i].t)r.steps[i].t=e.steps[i].t;
+            if(e.steps[i].h!==undefined)r.steps[i].h=e.steps[i].h;
+          }
+        }
+      }
+    });
+  });
+}
+
+function adminEdit(el) {
+  if(!IS_ADMIN) return;
+  var rid = el.getAttribute('data-rid');
+  var field = el.getAttribute('data-field');
+  var si = el.getAttribute('data-si');
+  var cur = el.textContent.trim();
+  var isMulti = (field==='goal'||field==='warn'||field==='t'||field==='h');
+  var inp;
+  if(isMulti){
+    inp=document.createElement('textarea');
+    inp.className='edit-textarea';inp.rows=3;
+  } else {
+    inp=document.createElement('input');
+    inp.className='edit-input';inp.type='text';
+  }
+  inp.value=cur;
+  var btns=document.createElement('div');btns.className='edit-btns';
+  var save=document.createElement('button');save.className='edit-save';save.textContent='Сохранить';
+  var cancel=document.createElement('button');cancel.className='edit-cancel';cancel.textContent='Отмена';
+  btns.appendChild(save);btns.appendChild(cancel);
+  var wrap=document.createElement('div');wrap.className='edit-wrap';
+  wrap.appendChild(inp);wrap.appendChild(btns);
+  el.replaceWith(wrap);
+  inp.focus();
+  save.onclick=function(){
+    var val=inp.value.trim();if(!val)return;
+    var edits=_getEdits();
+    if(!edits[rid])edits[rid]={};
+    if(si!==null&&si!==undefined&&si!==''){
+      if(!edits[rid].steps)edits[rid].steps={};
+      var idx=parseInt(si);
+      if(!edits[rid].steps[idx])edits[rid].steps[idx]={};
+      edits[rid].steps[idx][field]=val;
+    } else {
+      edits[rid][field]=val;
+    }
+    _saveEdits(edits);
+    _applyEdits();
+    var sec=SECTIONS.find(function(x){return x.regs.find(function(r){return r.id===rid;});});
+    if(sec)showReg(sec.id,rid);
+  };
+  cancel.onclick=function(){
+    var sec=SECTIONS.find(function(x){return x.regs.find(function(r){return r.id===rid;});});
+    if(sec)showReg(sec.id,rid);
+  };
+}
+
+// ===== КНОПКИ UPLOAD — показывать только admin =====
+function _toggleUploadBtns(){
+  document.querySelectorAll('[id^="udbtn-"]').forEach(function(btn){
+    btn.style.display = IS_ADMIN ? 'flex' : 'none';
+  });
+}
+
+// ===== ФАЙЛЫ =====
+var _O='thldpersonal-cloud',_R='kniga_proraba',_B='main',_P='docs';
+function _gT(){return localStorage.getItem('ght')||'';}
+function _sT(t){localStorage.setItem('ght',t);}
+function _gD(id){try{return JSON.parse(localStorage.getItem('d'+id)||'[]');}catch(e){return[];}}
+function _sD(id,d){localStorage.setItem('d'+id,JSON.stringify(d));}
+
+function _rD(id){
+  var el=document.getElementById('ud-'+id);
+  if(!el)return;
+  el.innerHTML='';
+  var docs=_gD(id);
+  for(var i=0;i<docs.length;i++){
+    var d=docs[i];
+    var row=document.createElement('div');row.className='ud-item';
+    var icon=document.createElement('span');icon.textContent='📄';icon.style.fontSize='13px';
+    var link=document.createElement('a');link.className='ud-link';link.href=d.url;link.target='_blank';link.textContent=d.name;
+    var sz=document.createElement('span');sz.className='ud-size';sz.textContent=d.size;
+    row.appendChild(icon);row.appendChild(link);row.appendChild(sz);
+    if(IS_ADMIN){
+      var btn=document.createElement('button');btn.className='ud-del';btn.textContent='×';
+      btn.setAttribute('data-id',id);btn.setAttribute('data-i',String(i));
+      btn.onclick=function(){_dD(this.getAttribute('data-id'),parseInt(this.getAttribute('data-i')));};
+      row.appendChild(btn);
+    } else {
+      var dl=document.createElement('a');
+      dl.href=d.url;dl.download=d.name;dl.target='_blank';
+      dl.innerHTML='&#8659;';
+      dl.style.cssText='font-size:15px;color:#888;text-decoration:none;flex-shrink:0;padding:0 4px;';
+      dl.title='Скачать';
+      row.appendChild(dl);
+    }
+    el.appendChild(row);
+  }
+}
+
+function _dD(id,i){
+  if(!confirm('Удалить файл?'))return;
+  var d=_gD(id);d.splice(i,1);_sD(id,d);_rD(id);
+}
+
+function _iD(){
+  SECTIONS.forEach(function(s){
+    s.regs.forEach(function(r){_rD(r.id);});
+  });
+  _toggleUploadBtns();
+}
+
+function udUpload(id){
+  if(!IS_ADMIN)return;
+  var tok=_gT();if(!tok){_sM(id);return;}
+  var inp=document.createElement('input');inp.type='file';
+  inp.accept='.pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg';
+  inp.onchange=function(){if(inp.files&&inp.files[0])_uF(id,inp.files[0],tok);};
+  inp.click();
+}
+
+function _uF(id,file,tok){
+  var pr=document.getElementById('up-'+id),br=document.getElementById('ub-'+id);
+  if(pr)pr.style.display='block';if(br)br.style.width='20%';
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var b64=e.target.result.split(',')[1];
+    var safe=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
+    var path=_P+'/'+id+'_'+Date.now()+'_'+safe;
+    if(br)br.style.width='50%';
+    fetch('https://api.github.com/repos/'+_O+'/'+_R+'/contents/'+path,{
+      method:'PUT',
+      headers:{'Authorization':'token '+tok,'Content-Type':'application/json'},
+      body:JSON.stringify({message:'doc',content:b64,branch:_B})
+    }).then(function(r){return r.json();}).then(function(data){
+      if(br)br.style.width='100%';
+      if(data.content){
+        var url='https://raw.githubusercontent.com/'+_O+'/'+_R+'/'+_B+'/'+path;
+        var s=file.size>1048576?(file.size/1048576).toFixed(1)+' МБ':Math.round(file.size/1024)+' КБ';
+        var docs=_gD(id);docs.push({name:file.name,url:url,size:s});_sD(id,docs);_rD(id);
+        _toggleUploadBtns();
+        setTimeout(function(){if(pr)pr.style.display='none';if(br)br.style.width='0%';},800);
+      } else if(data.message&&data.message.indexOf('Bad credentials')>-1){
+        if(pr)pr.style.display='none';localStorage.removeItem('ght');alert('Токен недействителен.');_sM(id);
+      } else {if(pr)pr.style.display='none';alert('Ошибка: '+(data.message||''));}
+    }).catch(function(err){if(pr)pr.style.display='none';alert('Ошибка сети: '+err.message);});
+  };
+  reader.readAsDataURL(file);
+}
+
+function _sM(id){
+  var ov=document.createElement('div');ov.className='tm-ov';ov.id='tm-ov';
+  var box=document.createElement('div');box.className='tm-box';
+  box.innerHTML='<div class="tm-ttl">&#128273; GitHub токен</div>'
+    +'<div class="tm-sub">Нужен для загрузки файлов. Сохранится на этом устройстве.</div>'
+    +'<div class="tm-lbl">Personal Access Token</div>'
+    +'<input class="tm-inp" id="tm-inp" type="password" placeholder="ghp_..."/>'
+    +'<div class="tm-hint">GitHub → Settings → Developer settings → Tokens (classic) → repo</div>'
+    +'<div class="tm-btns">'
+    +'<button class="tm-cc" id="tm-cc">Отмена</button>'
+    +'<button class="tm-ss" id="tm-ss">Сохранить</button>'
+    +'</div>';
+  ov.appendChild(box);document.body.appendChild(ov);
+  document.getElementById('tm-cc').onclick=function(){ov.remove();};
+  document.getElementById('tm-ss').onclick=function(){
+    var t=document.getElementById('tm-inp').value.trim();
+    if(!t||t.length<10){document.getElementById('tm-inp').style.borderColor='#ef4444';return;}
+    _sT(t);ov.remove();udUpload(id);
+  };
+  setTimeout(function(){var i=document.getElementById('tm-inp');if(i)i.focus();},100);
+}
+
+
+
+_applyEdits();
+checkMode();
 buildSidebar();
 showCover();
 document.getElementById('sg-s1').classList.add('open');
